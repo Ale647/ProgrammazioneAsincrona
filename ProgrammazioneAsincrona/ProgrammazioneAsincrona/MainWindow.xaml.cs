@@ -58,16 +58,7 @@ namespace ProgrammazioneAsincrona
         {
             if (int.TryParse(TxBox.Text, out int tmp) && tmp >= 1)
             {
-<<<<<<< Updated upstream
-                if(tmp <= dimensione && lunParola < dimensione)
-                {
-                    LstBox.Items.Add("");
-                    numParole++;
-                    lunParola = 0;
-                }
-=======
 
->>>>>>> Stashed changes
 
                 dimensione = tmp;
             }
