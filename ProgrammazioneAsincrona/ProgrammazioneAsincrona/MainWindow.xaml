@@ -7,11 +7,12 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button x:Name="Btn_Estrai" Content="Estrai" HorizontalAlignment="Left" Height="114" Margin="23,266,0,0" VerticalAlignment="Top" Width="366" Click="Btn_Estrai_Click"/>
+        <Button x:Name="Btn_Estrai" Content="Estrai" HorizontalAlignment="Left" Height="114" Margin="29,91,0,0" VerticalAlignment="Top" Width="366" Click="Btn_Estrai_Click"/>
         <ListBox x:Name="LstBox" HorizontalAlignment="Left" Height="414" Margin="400,0,0,0" VerticalAlignment="Center" Width="390" d:ItemsSource="{d:SampleData ItemCount=5}"/>
-        <Label x:Name="Lbl" Content="Estrai lettere" HorizontalAlignment="Left" Height="44" Margin="103,10,0,0" VerticalAlignment="Top" Width="122"/>
-        <TextBox x:Name="TxBox" HorizontalAlignment="Left" Height="44" Margin="23,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="272" TextChanged="TxBox_TextChanged"/>
-        <Button x:Name="Btn_LenParola" Content="Cambia Lunghezza Parola" HorizontalAlignment="Left" Height="63" Margin="23,172,0,0" VerticalAlignment="Top" Width="254" Click="Btn_LenParola_Click"/>
+        <Label x:Name="Lbl" Content="Estrai lettere" HorizontalAlignment="Left" Height="44" Margin="145,58,0,0" VerticalAlignment="Top" Width="122" HorizontalContentAlignment="Center"/>
+        <TextBox x:Name="TxBox" HorizontalAlignment="Left" Height="44" Margin="32,272,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="272" TextChanged="TxBox_TextChanged"/>
+        <Button x:Name="Btn_LenParola" Content="Cambia Lunghezza Parola" HorizontalAlignment="Left" Height="63" Margin="32,339,0,0" VerticalAlignment="Top" Width="254" Click="Btn_LenParola_Click"/>
+        <Label x:Name="Lbl_Ruota" Content="" HorizontalAlignment="Left" Margin="177,9,0,0" VerticalAlignment="Top" Width="58" Height="44" HorizontalContentAlignment="Center"/>
 
     </Grid>
 </Window>

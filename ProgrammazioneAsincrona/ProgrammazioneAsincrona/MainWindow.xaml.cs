@@ -18,7 +18,7 @@ namespace ProgrammazioneAsincrona
     {
         List<char> lettere = new List<char> { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' };
         Random rnd = new Random();
-        int lunParola = 1;
+        int lunParola = 0;
         int dimensione = 6;
         int numParole = 0;
         
@@ -26,18 +26,24 @@ namespace ProgrammazioneAsincrona
         {
             InitializeComponent();
             LstBox.Items.Add("");
+            Ruota_Lettere();
         }
 
-        private void Btn_Estrai_Click(object sender, RoutedEventArgs e)
+        private async void Btn_Estrai_Click(object sender, RoutedEventArgs e)
         {
 
-            Lbl.Content = lettere[rnd.Next(1, lettere.Count())];
+            Lbl.Content = "Lettera estratta: " + lettere[rnd.Next(0, lettere.Count())];
             lunParola++;
-            LstBox.Items[numParole] = LstBox.Items[numParole].ToString() + Lbl.Content;
 
-            if (lunParola == dimensione)
+            //Creo un stringa con il contenuto della label per prendere l'ultimo carattere e aggiungerlo alla parola in costruzione nella ListBox
+            string testoLabel = Lbl.Content.ToString();
+            char ultimoCarattere = testoLabel[testoLabel.Length - 1];
+
+            LstBox.Items[numParole] = LstBox.Items[numParole].ToString() + ultimoCarattere;
+
+            if (lunParola >= dimensione)
             {
-                LstBox.Items.Add(Lbl.Content);
+                LstBox.Items.Add("");
                 lunParola = 0;
                 numParole++;
             }
@@ -52,10 +58,33 @@ namespace ProgrammazioneAsincrona
         {
             if (int.TryParse(TxBox.Text, out int tmp) && tmp >= 1)
             {
+                if(tmp <= dimensione && lunParola < dimensione)
+                {
+                    LstBox.Items.Add("");
+                    numParole++;
+                    lunParola = 0;
+                }
+
                 dimensione = tmp;
             }
 
+
+            
             TxBox.Text = "";
+
+
+            
         }
+
+        private async void Ruota_Lettere()
+        {
+            while (true)
+            {
+
+                Lbl_Ruota.Content = lettere[rnd.Next(0, lettere.Count())];
+                await Task.Delay(100);
+            }
+        }
+
     }
 }
